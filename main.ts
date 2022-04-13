@@ -16,22 +16,20 @@ function vykresli() {
 function zrcadli() {
     for (let i = 0; i < ctverec.length; i++) {
         for (let e = 0; e < 2; e++) {
-            odraz[i][e] = ctverec[i][e] + 2 * (stred[e] - ctverec[i][e])
+            odraz[i][e] = 2 * stred[e] - ctverec[i][e]
         }
     }
     vykresli()
 }
 
 input.onButtonPressed(Button.A, function on_button_pressed_a() {
+    
     ctverec[1][0] += 1
     ctverec[2][1] += 1
     ctverec[3][0] += 1
     ctverec[3][1] += 1
     if (ctverec[3][0] == 5) {
-        ctverec[1][0] -= 3
-        ctverec[2][1] -= 3
-        ctverec[3][0] -= 3
-        ctverec[3][1] -= 3
+        ctverec = [[1, 0], [2, 0], [1, 1], [2, 1]]
     }
     
     zrcadli()
